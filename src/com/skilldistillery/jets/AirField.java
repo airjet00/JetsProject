@@ -28,9 +28,15 @@ public class AirField {
 		this.jets = jets;
 	}
 	
-	@Override
+	//This will print all jets 
+	
 	public String toString() {
-		return "AirField [allJets=" + allJets + "]";
+		String airFieldJets="";
+		for(int idx = 0; idx < allJets.size(); idx++) {
+			airFieldJets += ""+(idx+1) +". "+ "AirField Jets: " + allJets.get(idx) + "\n";
+		}
+		System.out.println(airFieldJets);
+		return airFieldJets;
 	}
 
 	//Read jets from file into collection
@@ -58,7 +64,6 @@ public class AirField {
 				}
 			}
 		}
-		System.out.println(names);
 		return names;
 	}
 }
