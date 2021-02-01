@@ -3,18 +3,23 @@ package com.skilldistillery.jets;
 import java.util.Scanner;
 
 public class JetsApplication {
-	AirField airField = new AirField();
+
 	private Scanner kb = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		JetsApplication ja = new JetsApplication();
-		ja.run();
 
+		ja.run();
 	}
 
 	public void run() {
-		//display menu test
+		// display menu test
+		
+		AirField af = new AirField("F-22", 100,200,300);
+		af.toString();
 		displayUserMenu();
+		// af.runTest();
+		//af.parkJets(jetContainer, jetInfo);
 	}
 
 	public JetsApplication() {
