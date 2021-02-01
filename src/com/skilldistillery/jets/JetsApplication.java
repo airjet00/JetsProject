@@ -14,9 +14,10 @@ public class JetsApplication {
 
 	public void run() {
 		// display menu test
-		
-		AirField af = new AirField("F-22", 100,200,300);
+		AirField af = new AirField();
 		af.toString();
+//		AirField af = new AirField("F-22", 100,200,300);
+//		af.set();
 		displayUserMenu();
 		// af.runTest();
 		//af.parkJets(jetContainer, jetInfo);

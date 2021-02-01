@@ -20,6 +20,7 @@ public abstract class Jet {
 	}
 
 	public String getModel() {
+		
 		return model;
 	}
 

@@ -17,7 +17,8 @@ public class AirField {
 	
 	private Jet [] jets = new Jet[4];
 	
-	private ArrayList<String> allJets = new ArrayList<>();
+	//set alljets with list of all avail jets. 
+	private ArrayList<String> allJets = new ArrayList<>(readJetsFromFile("jets.txt"));
 
 	public Jet [] getJets() {
 		return jets;
@@ -26,7 +27,40 @@ public class AirField {
 	public void setJets(Jet [] jets) {
 		this.jets = jets;
 	}
+	
+	@Override
+	public String toString() {
+		return "AirField [allJets=" + allJets + "]";
+	}
 
+	//Read jets from file into collection
+	private Collection<String> readJetsFromFile(String fileName) {
+
+		BufferedReader reader = null;
+		Collection<String> names = new ArrayList<>();
+		try {
+			reader = new BufferedReader(new FileReader(fileName));
+			String line;
+			while ((line = reader.readLine()) != null) {
+
+				names.add(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		System.out.println(names);
+		return names;
+	}
 }
 	// AirField af = new AirField();
 //
