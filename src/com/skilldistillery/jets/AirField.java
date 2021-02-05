@@ -20,8 +20,9 @@ public class AirField {
 	//set alljets with list of all avail jets. 
 	private ArrayList<String> allJets = new ArrayList<>(readJetsFromFile("jets.txt"));
 
-	public Jet [] getJets() {
-		return jets;
+	public ArrayList<String> getJets() {
+		//System.out.println(allJets);
+		return allJets;
 	}
 
 	public void setJets(Jet [] jets) {
@@ -30,14 +31,6 @@ public class AirField {
 	
 	//This will print all jets 
 	
-	public String toString() {
-		String airFieldJets="";
-		for(int idx = 0; idx < allJets.size(); idx++) {
-			airFieldJets += ""+(idx+1) +". "+ "AirField Jets: " + allJets.get(idx) + "\n";
-		}
-		System.out.println(airFieldJets);
-		return airFieldJets;
-	}
 
 	//Read jets from file into collection
 	private Collection<String> readJetsFromFile(String fileName) {
@@ -64,7 +57,28 @@ public class AirField {
 				}
 			}
 		}
+		//System.out.println(names);
 		return names;
+	}
+//	public void setAirField() {
+//		Collection<String> jetInfo = readJetsFromFile("jets.txt");
+//		
+//		Collection<List<String>> jetContainer = createAirField();
+//		
+//		//complete airfield
+//		Collection<List<String>> allJets = parkJets(jetContainer, jetInfo);
+//		
+//	}
+	public String toString() {
+		String airFieldJets="";
+		for(int idx = 0; idx < allJets.size(); idx++) {
+			String []idxJet = allJets.get(idx).split(", ");
+			airFieldJets += "AirField Jets: " +idxJet[0] + ", Speed: " + idxJet[1] +" mph, "
+							 +"Range: "+ idxJet[2] + " mi, Price: $" + idxJet[3] +" million.\n";
+			//airFieldJets += ""+(idx+1) +". "+ "AirField Jets: " + allJets.get(idx) + "\n";
+		}
+		
+		return airFieldJets;
 	}
 }
 	// AirField af = new AirField();
@@ -76,15 +90,6 @@ public class AirField {
 //
 //	}
 //
-//	public void setAirField() {
-//		Collection<String> jetInfo = readJetsFromFile("jets.txt");
-//
-//		Collection<List<String>> jetContainer = createAirField();
-//
-//		//complete airfield
-//		Collection<List<String>> allJets = parkJets(jetContainer, jetInfo);
-//		
-//	}
 //
 //	public String setModel(Collection<List<String>> allJets) {
 //		String model = "";
@@ -94,53 +99,9 @@ public class AirField {
 //		
 //		return model;
 //	}
-//	public String
-//	@Override
-//	public String toString() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append("AirField Model: ");
-//		builder.append(getModel());
-//		builder.append(", Speed: ");
-//		builder.append(getSpeed());
-//		builder.append(", Range: ");
-//		builder.append(getRange());
-//		builder.append(", Price: ");
-//		builder.append(getPrice());
-//		builder.append(", toString()=");
-//		builder.append(super.toString());
-//		builder.append("]");
-//		return builder.toString();
-//	}
+
 //
-//	public void getJet() {
-//
-//	}
-//
-//	// now we have our airfield, need jets.
-//	// create method to populate airfield
-//	public Collection<List<String>> parkJets(Collection<List<String>> jetContainer, Collection<String> jetInfo) {
-//
-//		// Need to add jets in jetInfo to either jetContainer
-//		// or manipulate and set variable based on jetInfo
-//		for (String string : jetInfo) {
-//			ArrayList<String> tempInfo = new ArrayList<>();
-//			tempInfo.toArray(string.split(", "));
-//			jetContainer.add(tempInfo);
-//		}
-//		System.out.println(jetContainer);
-//		return jetContainer;
-//	}
-//
-//	private Set<List<String>> createAirField() {
-//		Set<List<String>> jetMainifest = new HashSet<>();
-//
-//		// create airfield that can hold up to 10 different aircraft
-//		for (int idx = 0; idx < 10; idx++) {
-//			jetMainifest.add(new ArrayList<>());
-//		}
-//
-//		return jetMainifest;
-//	}
+//	
 //
 //	private Collection<String> readJetsFromFile(String fileName) {
 //

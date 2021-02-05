@@ -15,7 +15,9 @@ public class JetsApplication {
 	public void run() {
 		// display menu test
 		AirField af = new AirField();
-		af.toString();
+		//af.setAirField();
+//		af.toString();
+		
 //		AirField af = new AirField("F-22", 100,200,300);
 //		af.set();
 		displayUserMenu();
@@ -46,7 +48,35 @@ public class JetsApplication {
 			System.out.println("7. Add a jet to Fleet ");
 			System.out.println("8. Remove a jet from Fleet ");
 			System.out.println("9. Quit");
+			System.out.println();
+			
 			userSelect = kb.nextInt();
+			
+			switch(userSelect) {
+			case 1:	AirField af = new AirField();
+					
+					System.out.println(af.toString());
+					System.out.println();
+					break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9: System.out.println("Goodbye");
+				break;
+
+			}
+			
 		}
 	}
 }

@@ -18,6 +18,12 @@ public abstract class Jet {
 	public void fly() {
 		
 	}
+	
+	public double getSpeedInMach() {
+		double mach1 = 767.269; //speed of mach1 in mph
+		double machResult = this.speed / mach1;
+		return machResult;
+	}
 
 	public String getModel() {
 		
