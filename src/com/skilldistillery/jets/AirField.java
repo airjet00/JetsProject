@@ -15,7 +15,7 @@ public class AirField {
 	public AirField() {}
 
 	
-	private Jet [] jets = new Jet[4];
+	private String [] jets = new String[4];
 	
 	//set alljets with list of all avail jets. 
 	private ArrayList<String> allJets = new ArrayList<>(readJetsFromFile("jets.txt"));
@@ -25,11 +25,23 @@ public class AirField {
 		return allJets;
 	}
 
-	public void setJets(Jet [] jets) {
+	public void setJets(String [] jets) {
 		this.jets = jets;
 	}
 	
-	//This will print all jets 
+	public void fastestJet() {
+		int fastestSpeed = 0;
+		String fastestJet = "";
+		for(int idx = 0; idx < allJets.size(); idx++) {
+			String []idxJet = allJets.get(idx).split(", ");
+			
+			if(Integer.parseInt(idxJet[1]) > fastestSpeed) {
+				fastestSpeed = Integer.parseInt(idxJet[1]);
+				fastestJet = "Fastest Jet: " +idxJet[0] + ", Speed: " + idxJet[1] +" mph, "
+						 +"Range: "+ idxJet[2] + " mi, Price: $" + idxJet[3] +" million.\n";
+			}
+		}System.out.println(fastestJet);
+	}
 	
 
 	//Read jets from file into collection
@@ -60,22 +72,19 @@ public class AirField {
 		//System.out.println(names);
 		return names;
 	}
-//	public void setAirField() {
-//		Collection<String> jetInfo = readJetsFromFile("jets.txt");
-//		
-//		Collection<List<String>> jetContainer = createAirField();
-//		
-//		//complete airfield
-//		Collection<List<String>> allJets = parkJets(jetContainer, jetInfo);
-//		
-//	}
+	public void setAirField() {
+		int idx = 0;
+		for (String list : allJets) {
+			jets[idx]= list;
+		}
+	}
+	//This will print all jets 
 	public String toString() {
 		String airFieldJets="";
 		for(int idx = 0; idx < allJets.size(); idx++) {
 			String []idxJet = allJets.get(idx).split(", ");
-			airFieldJets += "AirField Jets: " +idxJet[0] + ", Speed: " + idxJet[1] +" mph, "
+			airFieldJets += ""+ (idx+1) +". AirField Jets: " +idxJet[0] + ", Speed: " + idxJet[1] +" mph, "
 							 +"Range: "+ idxJet[2] + " mi, Price: $" + idxJet[3] +" million.\n";
-			//airFieldJets += ""+(idx+1) +". "+ "AirField Jets: " + allJets.get(idx) + "\n";
 		}
 		
 		return airFieldJets;

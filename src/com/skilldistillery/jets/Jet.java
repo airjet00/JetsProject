@@ -1,5 +1,7 @@
 package com.skilldistillery.jets;
 
+import java.util.ArrayList;
+
 public abstract class Jet {
 
 	private String model;
@@ -16,7 +18,9 @@ public abstract class Jet {
 	}
 	
 	public void fly() {
-		
+//		AirField flyPlanes = new AirField();
+//		flyPlanes.getJets();
+		System.out.println(getModel() + " is flying at max speed of: " +getSpeed()+" mph.");
 	}
 	
 	public double getSpeedInMach() {

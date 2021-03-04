@@ -1,5 +1,6 @@
 package com.skilldistillery.jets;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JetsApplication {
@@ -51,16 +52,25 @@ public class JetsApplication {
 			System.out.println();
 			
 			userSelect = kb.nextInt();
-			
+			AirField af = new AirField();
+			JetImpl impl;
+			FighterJet fj;  //for adding fj
+			//JetImpl jetImpl = new JetImpl();
 			switch(userSelect) {
-			case 1:	AirField af = new AirField();
-					
+			case 1:	af.setAirField();
 					System.out.println(af.toString());
 					System.out.println();
 					break;
-			case 2:
+			case 2: 
+				
+				for (String jet : af.getJets()) {
+					String [] jetInfo = jet.split(", ");
+					impl = new JetImpl(jetInfo[0], Double.parseDouble(jetInfo[1]), 
+							Integer.parseInt(jetInfo[2]), Long.parseLong(jetInfo[3]));
+						System.out.println(jetInfo[1]);
+			}
 				break;
-			case 3:
+			case 3: af.fastestJet();
 				break;
 			case 4:
 				break;
